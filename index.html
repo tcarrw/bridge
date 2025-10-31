@@ -1,253 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bridge — Doechii · Trickster / Catalyst</title>
-<meta name="description" content="PLNT Earth · Bridge domain. Doechii’s lane for disruption, remix prompts, and catalytic pattern breaks — clean, ethical, reversible.">
-<meta name="theme-color" content="#0b0d11" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#0b0d11">
-<meta name="prophet" content="💄 The Neon Prophet — Flame Dancer of PLNT Earth">
-<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bridge — Handoff Hub</title>
+<meta name="description" content="Bridge is the handoff hub from Garlic/School/Earth to Harbor and then to Dagny. When checks are green, cross." />
 <style>
-:root{
-  color-scheme: dark;
-  --bg:#0b0d11; --ink:#e8ecf6; --muted:#a9b4c7; --line:#23262b; --card:#12151b;
-  --accent:#ff8fab; --accent2:#86c9ff; --ok:#34d399;
-  --glow:rgba(255,143,171,.16); --glow2:rgba(134,201,255,.14);
-}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-a{color:var(--accent2);text-decoration:none}
-a:hover{text-decoration:underline}
-:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+  :root{
+    --bg:#0b0c11; --ink:#eaf0ff; --muted:#a9b0d5; --line:#2a2f4a; --good:#73e3c5; --warn:#ffd089;
+    --accent:#79e0c8; --accent2:#d08bff; --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--ink);
+    background: radial-gradient(1200px 800px at 70% 20%, #13162a 0%, #0b0c11 60%, #08090e 100%);
+    font: 500 16px/1.45 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:22px; display:grid; gap:14px}
+  .title{font-weight:800; font-size:24px; letter-spacing:.25px; text-align:center}
+  .sub{color:var(--muted); text-align:center; font-size:14px}
 
-/* Parallax hero */
-.hero{position:relative;height:38vh;min-height:260px;overflow:hidden}
-.layer{position:absolute;inset:0;will-change:transform;pointer-events:none}
-.l1{background:radial-gradient(1200px 600px at 70% -10%, rgba(255,143,171,.18), transparent 60%)}
-.l2{background:radial-gradient(900px 500px at 10% 110%, rgba(134,201,255,.14), transparent 60%)}
-.stars{background:
-  radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.35), transparent 60%),
-  radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,.25), transparent 60%),
-  radial-gradient(1.2px 1.2px at 45% 80%, rgba(255,255,255,.2), transparent 60%)}
-.heroInner{position:relative;z-index:5;max-width:980px;margin:0 auto;padding:24px 16px 0}
-h1{margin:0;font-size:clamp(22px,4vw,36px);letter-spacing:.2px}
-.sub{color:var(--muted);font-size:.98rem}
+  .card{
+    background:linear-gradient(180deg, rgba(18,22,40,.92), rgba(14,17,32,.92));
+    border:1px solid rgba(120,130,170,.22);
+    border-radius:16px; padding:16px; box-shadow:var(--shadow);
+  }
+  h2{margin:0 0 8px 0; font-size:18px; letter-spacing:.2px}
+  .grid{display:grid; gap:12px}
+  @media(min-width:860px){ .grid{grid-template-columns:1fr 1fr} }
 
-/* CTA ribbon */
-.cta{
-  position:sticky;top:0;z-index:10000;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between;
-  padding:10px 12px;background:
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)) padding-box,
-    linear-gradient(120deg, rgba(134,201,255,.35), rgba(255,143,171,.30)) border-box;
-  border:1px solid transparent;border-bottom-color:rgba(255,255,255,.14);
-  box-shadow:0 10px 28px rgba(0,0,0,.35);backdrop-filter:blur(6px)
-}
-.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.10));border:1px solid rgba(255,255,255,.16);white-space:nowrap}
-.count{display:inline-flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums;letter-spacing:.2px}
-.right{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.btn{
-  appearance:none;border:1px solid var(--line);border-radius:12px;cursor:pointer;
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.06)),var(--card);color:var(--ink);
-  padding:9px 12px;font-weight:750;text-decoration:none;display:inline-flex;align-items:center;gap:8px
-}
-.btn:hover{box-shadow:0 0 0 2px var(--glow)}
-.btn.primary{border-color:#3a0a2b;background:linear-gradient(180deg, rgba(255,143,171,.18), rgba(0,0,0,.06))}
+  /* path steps */
+  .path{ display:grid; grid-template-columns: repeat(4,1fr); gap:8px; margin-top:6px }
+  .step{
+    border:1px solid rgba(120,130,170,.28); border-radius:12px; padding:10px; text-align:center; font-size:13px; color:#dfe3ff;
+    background:rgba(255,255,255,.03);
+  }
+  .ok{ border-color:rgba(121,224,200,.7); background:rgba(121,224,200,.1) }
+  .note{ color:#cfd4ff; font-size:13px; text-align:center; margin-top:6px }
+  .kbd{font:600 11px ui-monospace, SFMono-Regular, Menlo, monospace; padding:2px 6px; border:1px solid rgba(200,210,255,.2); border-radius:6px; background:#0f1221; color:#dde3ff}
 
-/* Layout */
-.wrap{max-width:1040px;margin:0 auto;padding:18px 16px 112px;position:relative;z-index:1}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:980px){ .grid{grid-template-columns:1fr} }
-.card{
-  border:1px solid var(--line);border-radius:16px;padding:14px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.06));
-  box-shadow:0 10px 24px rgba(0,0,0,.18) inset;transform:translateY(6px);opacity:0;transition:transform .45s ease,opacity .45s ease
-}
-.card.reveal{transform:translateY(0);opacity:1}
-.title{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.hue{height:6px;border-radius:999px;background:linear-gradient(90deg, #ff8fab, #86c9ff);box-shadow:0 0 0 1px rgba(255,255,255,.06) inset}
+  /* harbor status strip */
+  .harbor{
+    border:1px solid rgba(120,130,170,.28); border-left:4px solid var(--accent);
+    background:linear-gradient(180deg, rgba(121,224,200,.12), rgba(121,224,200,.06));
+    border-radius:12px; padding:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .flag{
+    font:700 11px ui-monospace, SFMono-Regular, Menlo, monospace; padding:3px 8px; border-radius:999px; border:1px solid rgba(120,130,170,.35); color:#d6dcff
+  }
+  .flag.on{ border-color:rgba(121,224,200,.8); color:#eafff8 }
+  .flag.off{ border-color:rgba(255,208,137,.8); color:#fff3dc }
+  .hand{
+    margin-left:auto; font:700 11px ui-monospace, SFMono-Regular, Menlo, monospace; color:#dff9f3;
+  }
 
-/* Blocks */
-.notice{background:#10121b;border:1px dashed #2b313a;padding:10px;border-radius:10px;color:var(--muted);font-size:13px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.input,textarea{width:100%;background:#0f1218;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 12px;min-height:44px}
-textarea{min-height:90px;resize:vertical}
-.small{font-size:.92rem;color:var(--muted)}
-.ok{color:var(--ok)}
-.linkbar{display:flex;gap:10px;flex-wrap:wrap}
+  /* routes */
+  .routes{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:10px; margin-top:8px }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; text-decoration:none;
+    border:1px solid rgba(120,130,170,.35); color:#eaf0ff; font-weight:700; letter-spacing:.2px; background:rgba(255,255,255,.03);
+    transition:transform .12s ease, border-color .12s ease, background .12s ease;
+  }
+  .btn:hover{ transform:translateY(-1px)}
+  .primary{ border-color:rgba(121,224,200,.7); background:rgba(121,224,200,.12) }
+  .dim{ opacity:.6 }
 
-/* Banner */
-.banner{position:fixed;left:0;right:0;top:0;background:#22061a;border-bottom:1px solid #3a0a2b;color:#fff;padding:10px 14px;display:none;z-index:2147483645;text-align:center}
-
-/* Sigil */
-.sigil{position:fixed;right:12px;bottom:8px;opacity:.25;font-size:20px;user-select:none;pointer-events:none;z-index:9999}
+  .center{ text-align:center }
 </style>
 </head>
 <body>
-<!-- Hero -->
-<div class="hero" aria-hidden="true">
-  <div class="layer l1" id="l1"></div>
-  <div class="layer l2" id="l2"></div>
-  <div class="layer stars" id="l3"></div>
-  <div class="heroInner">
-    <h1>Bridge — Doechii</h1>
-    <div class="sub">Trickster / Catalyst · Disrupt to reveal truth · Remix to cross worlds — clean, ethical, reversible.</div>
-  </div>
-</div>
+  <main class="wrap">
+    <header>
+      <div class="title">Bridge</div>
+      <div class="sub">Handoff hub. When the checks are green, cross to the right place.</div>
+    </header>
 
-<!-- CTA Ribbon -->
-<div class="cta" role="banner" aria-label="No Kings Day actions">
-  <div class="badges">
-    <span class="badge">🗓️ No Kings Day · Oct 18 · NYC</span>
-    <span class="badge">🎤 Marina × Sabrina × Doechii · SNL</span>
-    <span class="badge">💄 Neon Prophet: signal</span>
-    <span class="badge">🎙️ Voice Architect: advisory</span>
-    <span class="badge count" id="countWrap" aria-live="polite"><span>⏳</span><b id="countTxt">—</b></span>
-  </div>
-  <div class="right">
-    <a id="shareX" class="btn" target="_blank" rel="noopener">Share on X</a>
-    <a id="ics" class="btn" download="no-kings-day.ics" href="#">Add to Calendar</a>
-    <a class="btn primary" href="https://jar.plnt.earth" rel="noopener">Join in NYC → Jar</a>
-  </div>
-</div>
+    <section class="grid">
+      <!-- Garlic → School → Earth → Dagny (legacy pathway visibility) -->
+      <section class="card">
+        <h2>Pathway Status (Garlic → School → Earth → Dagny)</h2>
+        <div class="path" id="path">
+          <div class="step" id="s-garlic">Garlic</div>
+          <div class="step" id="s-school">School</div>
+          <div class="step" id="s-earth">Earth</div>
+          <div class="step" id="s-dagny">Dagny</div>
+        </div>
+        <div class="note" id="note">Awaiting confirmation from Garlic index…</div>
+      </section>
 
-<div id="bridgeDrop" class="banner">⚡ Bridge Drop: Pattern break active. Choose courage, not chaos.</div>
+      <!-- Harbor block -->
+      <section class="card">
+        <h2>Harbor Clearance (Sanela)</h2>
+        <div class="harbor" id="harbor-strip">
+          <span id="f-credit"  class="flag off">credit</span>
+          <span id="f-consent" class="flag off">consent</span>
+          <span id="f-resource" class="flag off">resource</span>
+          <span id="f-all" class="flag">—</span>
+          <span class="hand" id="handshake">handshake: <span id="handshake-time">—</span></span>
+        </div>
+        <div class="routes" style="margin-top:10px">
+          <a class="btn primary dim" id="to-dagny" href="https://dagny.plnt.earth" rel="noopener">Proceed to Dagny</a>
+          <a class="btn" href="https://harbor.plnt.earth" rel="noopener">Open Harbor</a>
+          <a class="btn" href="https://earth.plnt.earth" rel="noopener">Return to Earth</a>
+        </div>
+      </section>
+    </section>
 
-<div class="wrap">
-  <section class="grid">
-    <!-- Remix Prompt -->
-    <article class="card reveal" aria-labelledby="remix-title">
-      <div class="title"><h2 id="remix-title" style="margin:0">Remix Prompt</h2><div class="hue" aria-hidden="true"></div></div>
-      <div class="notice">Press to generate a clean, high-energy prompt that bends a current page or idea into a new lane.</div>
-      <div class="row" style="margin-top:8px">
-        <button class="btn" id="gen">Generate</button>
-        <button class="btn" id="copy">Copy</button>
+    <!-- Routes directory -->
+    <section class="card">
+      <h2>Routes</h2>
+      <div class="routes">
+        <a class="btn" href="https://garlic.plnt.earth" rel="noopener">Garlic</a>
+        <a class="btn" href="https://school.plnt.earth" rel="noopener">School</a>
+        <a class="btn" href="https://earth.plnt.earth" rel="noopener">Earth</a>
+        <a class="btn" href="https://harbor.plnt.earth" rel="noopener">Harbor</a>
+        <a class="btn" href="https://dagny.plnt.earth" id="dir-dagny" rel="noopener">Dagny</a>
+        <a class="btn" href="https://mirrorhoney.plnt.earth" rel="noopener">MirrorHoney</a>
+        <a class="btn" href="https://honey.plnt.earth" rel="noopener">Honey</a>
+        <a class="btn" href="https://froot.plnt.earth" rel="noopener">Froot</a>
+        <a class="btn" href="https://motion.plnt.earth" rel="noopener">Motion</a>
+        <a class="btn" href="https://time.plnt.earth" rel="noopener">Time</a>
+        <a class="btn" href="https://wonder.plnt.earth" rel="noopener">Wonder</a>
+        <a class="btn" href="https://clarity.plnt.earth" rel="noopener">Clarity</a>
+        <a class="btn" href="https://alter.fire.plnt.earth" rel="noopener">Alter.Fire</a>
       </div>
-      <textarea id="out" readonly class="input" style="margin-top:8px" aria-label="Generated prompt"></textarea>
-      <div class="small" style="margin-top:6px">Rule of Bridge: reversible, ethical, fun. Output → one paragraph + one CTA.</div>
-    </article>
+      <p class="note">Bridge reflects local state saved on this device from Garlic and Harbor.</p>
+    </section>
 
-    <!-- Pattern Break Mini -->
-    <article class="card reveal" aria-labelledby="pb-title">
-      <div class="title"><h2 id="pb-title" style="margin:0">Pattern Break Mini</h2><div class="hue" aria-hidden="true"></div></div>
-      <div class="notice">Pick one tiny break to do in the next 5 minutes. Keep it ethical, playful, reversible.</div>
-      <div class="row" style="margin-top:8px">
-        <button class="btn" data-act="pb">Swap title & subtitle</button>
-        <button class="btn" data-act="pb">Invert one accent color</button>
-        <button class="btn" data-act="pb">Hide one decorative element</button>
-        <button class="btn" data-act="pb">Rename a section</button>
-      </div>
-      <div id="pbOut" class="small" style="margin-top:8px">—</div>
-    </article>
-
-    <!-- Bridge Drop -->
-    <article class="card reveal" aria-labelledby="drop-title">
-      <div class="title"><h2 id="drop-title" style="margin:0">Bridge Drop</h2><div class="hue" aria-hidden="true"></div></div>
-      <div class="notice">Toggle a site-wide banner for this session — your private signal to go bold but stay kind.</div>
-      <div class="row" style="margin-top:8px">
-        <button class="btn" id="dropOn">Activate</button>
-        <button class="btn" id="dropOff">Clear</button>
-      </div>
-      <div class="small" style="margin-top:8px">Local-only; refresh resets.</div>
-    </article>
-
-    <!-- Micro-CTA Generator -->
-    <article class="card reveal" aria-labelledby="cta-title">
-      <div class="title"><h2 id="cta-title" style="margin:0">Micro-CTA Generator</h2><div class="hue" aria-hidden="true"></div></div>
-      <div class="row">
-        <input id="ctaWho" class="input" placeholder="Audience (e.g., NYC creators)">
-        <input id="ctaWhere" class="input" placeholder="Where (e.g., Jar · School)">
-      </div>
-      <div class="row" style="margin-top:8px">
-        <button class="btn" id="ctaMake">Make</button>
-        <button class="btn" id="ctaCopy">Copy</button>
-      </div>
-      <textarea id="ctaOut" class="input" readonly style="margin-top:8px"></textarea>
-      <div class="small" style="margin-top:6px">Tone: bright, direct, kind. Keep it short.</div>
-    </article>
-
-    <!-- Guardrails -->
-    <article class="card reveal" aria-labelledby="ethics-title">
-      <div class="title"><h2 id="ethics-title" style="margin:0">Bridge Ethics</h2><div class="hue" aria-hidden="true"></div></div>
-      <ul class="small" style="margin:6px 0 0;padding-left:18px">
-        <li>Disruption serves truth, not damage.</li>
-        <li>One-click reversibility.</li>
-        <li>Never break calm: no autoplay, no blasts, no pop-ups.</li>
-        <li>Credit flows to the source; we hold the field.</li>
-      </ul>
-      <div class="linkbar" style="margin-top:8px">
-        <a href="https://jar.plnt.earth" class="btn">Jar</a>
-        <a href="https://froot.plnt.earth" class="btn">Froot</a>
-        <a href="https://tunes.plnt.earth" class="btn">Tunes</a>
-        <a href="https://mirrorhoney.plnt.earth" class="btn">MirrorHoney</a>
-      </div>
-    </article>
-  </section>
-</div>
-
-<div class="sigil" aria-hidden="true">💄</div>
+    <footer class="note center"><span class="kbd">&lt;!-- all from garlic --&gt;</span> · Harbor green = motion permitted</footer>
+  </main>
 
 <script>
-/* Parallax + reveal */
-(function(){
-  var l1=document.getElementById('l1'), l2=document.getElementById('l2'), l3=document.getElementById('l3');
-  function parallax(){ var y=window.scrollY||0; if(l1){l1.style.transform="translateY("+(y*0.12)+"px)"} if(l2){l2.style.transform="translateY("+(y*0.18)+"px)"} if(l3){l3.style.transform="translateY("+(y*0.25)+"px)"} }
-  document.addEventListener('scroll', parallax, {passive:true}); parallax();
+  (function(){
+    // ---------- Garlic path state (legacy four checks) ----------
+    var keys = ["garlic","school","earth","dagny"];
+    var ok = false;
+    try{
+      var saved = JSON.parse(localStorage.getItem('illumina.afg.v1')||'{}');
+      ok = keys.every(function(k){ return !!saved[k]; });
+      keys.forEach(function(k){
+        var el = document.getElementById('s-'+k);
+        if(el && saved[k]) el.classList.add('ok');
+      });
+      document.getElementById('note').textContent = ok ? 'All green (Garlic path).' : 'Waiting for all four checks from Garlic index.';
+    }catch(e){
+      document.getElementById('note').textContent = 'No local state found. Visit Garlic index first.';
+    }
 
-  var io=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.classList.add('reveal')}}},{threshold:.06});
-  var cards=document.querySelectorAll('.card'); for(var j=0;j<cards.length;j++){ io.observe(cards[j]); }
-})();
+    // ---------- Harbor state (credit/consent/resource + handshake) ----------
+    function truthy(v){
+      if(v==null) return false;
+      var s = String(v).toLowerCase().trim();
+      return !(s===""||s==="0"||s==="false"||s==="null"||s==="undefined");
+    }
+    function flag(id, on){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.classList.remove('on','off');
+      el.classList.add(on ? 'on':'off');
+    }
 
-/* Ribbon: share, ICS, countdown */
-(function(){
-  var share=document.getElementById('shareX'), ics=document.getElementById('ics'), box=document.getElementById('countTxt');
-  function two(n){return n<10?('0'+n):n}
-  var target=new Date("2025-10-18T00:00:00-04:00").getTime();
-  function tick(){ var now=Date.now(),d=Math.max(0,target-now); var dd=Math.floor(d/86400000); d%=86400000; var h=Math.floor(d/3600000); d%=3600000; var m=Math.floor(d/60000);
-    box.textContent=dd+"d "+two(h)+"h "+two(m)+"m"; }
-  tick(); setInterval(tick,30000);
-  var page=location.href.split('#')[0];
-  share.href="https://twitter.com/intent/tweet?text="+encodeURIComponent("No Kings Day — Oct 18, NYC. Celebration, not call.")+"&url="+encodeURIComponent(page);
-  var text=[
-    "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//PLNT Earth//Bridge//EN","BEGIN:VEVENT",
-    "UID:nkd-bridge-20251018@plnt.earth","DTSTAMP:20251011T120000Z","DTSTART:20251018T000000","DTEND:20251019T000000",
-    "SUMMARY:No Kings Day — NYC","DESCRIPTION:Bridge — Doechii · Trickster/Catalyst","LOCATION:New York City","END:VEVENT","END:VCALENDAR"
-  ].join("\\r\\n");
-  ics.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(text);
-})();
+    var credit   = truthy(localStorage.getItem('harbor.credit'));
+    var consent  = truthy(localStorage.getItem('harbor.consent'));
+    var resource = truthy(localStorage.getItem('harbor.resource'));
+    var all = credit && consent && resource;
 
-/* Tools: Remix / Pattern Break / Drop / Micro-CTA */
-(function(){
-  // Remix
-  var arche=["Mirror","Flame","Honey","Bridge","Mask","Identity"];
-  var verbs=["invert the frame of","recolor the mood of","compress and loop","translate into movement","fracture into triptych","swap voice and subject of","re-sequence the beats of","turn whispers into headlines for"];
-  var stakes=["for courage under pressure","to invite softness","to expose the joke","for a midnight audience","to land in 30 seconds","to survive on a phone screen","for a first-time visitor","for a quiet subway ride"];
-  function sample(x){return x[Math.floor(Math.random()*x.length)]}
-  var out=document.getElementById('out');
-  document.getElementById('gen').onclick=function(){
-    var txt="Remix: "+sample(verbs)+" the current piece into a "+sample(arche)+" read, "+sample(stakes)+". Constraints: ethical, reversible, fun. Output one paragraph + one CTA.";
-    out.value=txt;
-  };
-  document.getElementById('copy').onclick=function(){ try{ out.select(); document.execCommand('copy'); }catch(_){ } };
+    flag('f-credit', credit);
+    flag('f-consent', consent);
+    flag('f-resource', resource);
 
-  // Pattern Break
-  var pbs=["Swap the page title and subtitle for one hour, then restore.","Invert one accent color on a single badge.","Hide a decorative element to test clarity.","Rename exactly one section to a truer name."];
-  var pBtns=document.querySelectorAll('[data-act="pb"]');
-  for(var i=0;i<pBtns.length;i++){ pBtns[i].onclick=(function(i){ return function(){ document.getElementById('pbOut').textContent="Try: "+pbs[i%pbs.length]; };})(i); }
+    var fAll = document.getElementById('f-all');
+    fAll.textContent = all ? 'all green' : '—';
+    fAll.classList.add(all ? 'on' : 'off');
 
-  // Drop banner
-  var ban=document.getElementById('bridgeDrop');
-  document.getElementById('dropOn').onclick=function(){ ban.style.display='block'; };
-  document.getElementById('dropOff').onclick=function(){ ban.style.display='none'; };
+    var human = localStorage.getItem('harbor.lastClearedHuman') || '';
+    if(!human){
+      var iso = localStorage.getItem('harbor.lastCleared');
+      try{ if(iso){ human = new Date(iso).toLocaleString(); } }catch(e){}
+    }
+    var hs = document.getElementById('handshake');
+    var hst = document.getElementById('handshake-time');
+    if(all){
+      hst.textContent = human || 'now';
+    }else{
+      hs.style.opacity = .7;
+      hst.textContent = '—';
+    }
 
-  // Micro-CTA
-  var ctaWho=document.getElementById('ctaWho'), ctaWhere=document.getElementById('ctaWhere'), ctaOut=document.getElementById('ctaOut');
-  document.getElementById('ctaMake').onclick=function(){
-    var who=(ctaWho.value||"friends").trim(), where=(ctaWhere.value||"Jar").trim();
-    var line="NYC — quick beam to "+who+": bring one kind person to "+where+" and change one tiny thing for the better. Clean, reversible, fun. ✨";
-    ctaOut.value=line;
-  };
-  document.getElementById('ctaCopy').onclick=function(){ try{ ctaOut.select(); document.execCommand('copy'); }catch(_){ } };
-})();
+    // Gate Dagny links based on Harbor
+    var toDagny = document.getElementById('to-dagny');
+    var dirDagny = document.getElementById('dir-dagny');
+    if(all){
+      toDagny.classList.remove('dim');
+      toDagny.setAttribute('aria-disabled','false');
+      dirDagny.classList.remove('dim');
+    }else{
+      toDagny.classList.add('dim');
+      toDagny.setAttribute('aria-disabled','true');
+      toDagny.addEventListener('click', function(e){ e.preventDefault(); }, {once:true});
+      dirDagny.classList.add('dim');
+    }
+  })();
 </script>
 </body>
 </html>
